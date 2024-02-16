@@ -13,6 +13,7 @@ bot.on("message", (msg) => {
   bot.sendMessage(chatId, "Received your message");
 });
 
+bot.start();
 
 export async function sendNotification(notification) {
     await bot.sendMessage(
