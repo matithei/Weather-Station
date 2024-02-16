@@ -30,4 +30,26 @@ app.post('/esp32', (req, res) => {
     
 })
 
+
+app.post(`/webhook/:token`, async (req, res) => {
+  try {
+    const { message } = req.body;
+
+    if (message) {
+      const chatId = message.chat.id;
+      const text = message.text;
+
+      // Manejar el mensaje recibido
+      console.log(`Mensaje recibido: ${text}`);
+
+      // Responder al mensaje recibido
+     //TODO
+    }
+
+    res.status(200).send("OK");
+  } catch (error) {
+    console.error("Error al manejar la actualización:", error.message);
+    res.status(500).send("Error interno del servidor");
+  }
+});
 app.listen(3000, () => console.log("Example app listening on port 3000!"));
