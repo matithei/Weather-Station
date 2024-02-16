@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const TOKEN = config.bot_key
 
-async function setWebhook() {
+export async function setWebhook() {
   try {
     await axios.post(`https://api.telegram.org/bot${TOKEN}/setWebhook`, {
       url: `https://apricot-lemur-wear.cyclic.app//webhook/${TOKEN}`,
@@ -14,8 +14,7 @@ async function setWebhook() {
   }
 }
 
-// Llamar a la función para configurar el webhook al iniciar la aplicación
-setWebhook();
+
 
 export async function sendNotification(notification) {
    var options = {

@@ -52,4 +52,6 @@ app.post(`/webhook/:token`, async (req, res) => {
     res.status(500).send("Error interno del servidor");
   }
 });
+
+telegram.setWebhook().then()
 app.listen(3000, () => console.log("Example app listening on port 3000!"));
