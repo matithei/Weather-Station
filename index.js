@@ -18,11 +18,14 @@ app.get("/", (req, res) => {
 });
 
 app.post('/esp32', (req, res) => {
-    const { body } = req;
+  const { body } = req;
+  telegram
+    .sendNotification({ stationName: "Don Atilio" })
+    .catch((e) => console.log(e));
     res.send({
         ok:true
     })
-    telegram.sendNotification({stationName:'Don Atilio'})
+    
 })
 
 app.listen(3000, () => console.log("Example app listening on port 3000!"));

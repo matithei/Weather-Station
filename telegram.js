@@ -14,8 +14,8 @@ bot.on("message", (msg) => {
 });
 
 
-export function sendNotification(notification) {
-    bot.sendMessage(
+export async function sendNotification(notification) {
+    await bot.sendMessage(
       1358182211,
       `Esta empezando a llover en ${notification.stationName} http://192.168.120.50:8080`
     );
