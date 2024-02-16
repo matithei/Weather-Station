@@ -21,8 +21,7 @@ export async function sendNotification(notification) {
      method: "POST",
      url: `https://api.telegram.org/bot${TOKEN}/sendMessage`,
      headers: {
-       "Content-Type": "application/json",
-       "User-Agent": "insomnia/8.5.1",
+       "Content-Type": "application/json"
      },
      data: {
        chat_id: 1358182211,
