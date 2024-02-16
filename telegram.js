@@ -31,8 +31,5 @@ export async function sendNotification(notification) {
 
    return axios
      .request(options)
-     .then(function (response) {
-       console.log(response.data);
-     })
 }
 
