@@ -19,6 +19,7 @@ app.get("/", (req, res) => {
 
 app.post('/esp32', (req, res) => {
   const { body } = req;
+  console.log(body)
   telegram
     .sendNotification({ stationName: "Don Atilio",value:body.sensorValue })
     .catch((e) => console.log(e));
