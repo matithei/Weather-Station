@@ -2,6 +2,7 @@ import * as telegram from './telegram.js'
 import express from "express";
 import path from 'path';
 import { fileURLToPath } from "url";
+import bodyParser from "body-parser";
 
 // 👇️ "/home/borislav/Desktop/javascript/index.js"
 const __filename = fileURLToPath(import.meta.url);
@@ -10,7 +11,7 @@ console.log(__filename);
 // 👇️ "/home/borislav/Desktop/javascript"
 const __dirname = path.dirname(__filename);
 const app = express();
-
+app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "control-panel")));
 
 app.get("/", (req, res) => {
