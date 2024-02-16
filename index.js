@@ -18,17 +18,23 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "control-panel", "index.html"));
 });
 
-app.post('/esp32', (req, res) => {
+app.post('/esp32', async (req, res) => {
   const { body } = req;
   console.log(body)
-  telegram
-    .sendNotification({ stationName: "Don Atilio", value: body.sensorValue }).then(r => {
-      console.log(r)
-    })
-    .catch((e) => console.log(e));
+  try {
+     await telegram.sendNotification({
+       stationName: "Don Atilio",
+       value: body.sensorValue,
+     });
+     res.send({
+       ok: true,
+     });
+  } catch (error) {
     res.send({
-        ok:true
-    })
+      error: error.message,
+    });
+  }
+ 
     
 })
 
