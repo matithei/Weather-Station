@@ -1,24 +1,25 @@
 import TelegramBot from 'node-telegram-bot-api';
 import { config } from './config.js';
+import axios from 'axios';
 
 const token = config.bot_key
-const users=config.users
-// Create a bot that uses 'polling' to fetch new updates
-const bot = new TelegramBot(token, { polling: true });
 
-bot.on("message", (msg) => {
-  const chatId = msg.chat.id;
-    console.log(msg.from.username)
-      console.log(msg.chat.id);
-  bot.sendMessage(chatId, "Received your message");
-});
-
-bot.start();
 
 export async function sendNotification(notification) {
-    await bot.sendMessage(
-      1358182211,
-      `Esta empezando a llover en ${notification.stationName} http://192.168.120.50:8080`
-    );
+   var options = {
+     method: "POST",
+     url: `https://api.telegram.org/bot${token}/sendMessage`,
+     headers: {
+       "Content-Type": "application/json",
+       "User-Agent": "insomnia/8.5.1",
+     },
+     data: { chat_id: 1358182211, text: `${notification.stationName} , Lluvia Actual: ${notification.value}` },
+   };
+
+   return axios
+     .request(options)
+     .then(function (response) {
+       console.log(response.data);
+     })
 }
 

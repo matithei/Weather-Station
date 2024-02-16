@@ -20,7 +20,7 @@ app.get("/", (req, res) => {
 app.post('/esp32', (req, res) => {
   const { body } = req;
   telegram
-    .sendNotification({ stationName: "Don Atilio" })
+    .sendNotification({ stationName: "Don Atilio",value:body.sensorValue })
     .catch((e) => console.log(e));
     res.send({
         ok:true
