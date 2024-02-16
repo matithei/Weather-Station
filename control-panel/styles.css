@@ -1,0 +1,23 @@
+/* Estilos personalizados */
+.top{
+       max-height: 4em!important;
+           object-fit: cover;
+}
+
+/* Estilos para el título */
+h1 {
+  color: #333;
+  text-align: center;
+}
+
+/* Estilos para las tarjetas */
+.card {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+}
+
+/* Estilos para los valores */
+.valor {
+  font-size: 24px;
+  font-weight: bold;
+}
